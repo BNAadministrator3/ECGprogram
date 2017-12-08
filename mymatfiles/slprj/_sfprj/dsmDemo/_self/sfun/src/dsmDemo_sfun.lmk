@@ -7,7 +7,7 @@ LIBFLAGS =
 
 OBJECTS = \
 	"dsmDemo_sfun.obj"\
-	"c4_dsmDemo.obj"\
+	"c3_dsmDemo.obj"\
 	"dsmDemo_sfun_registry.obj"\
 	"lccstub.obj"\
 
@@ -18,8 +18,8 @@ dsmDemo_sfun.mexw64 : $(MAKEFILE) $(OBJECTS)
 	$(LD) $(LDFLAGS) -o dsmDemo_sfun.mexw64 @dsmDemo_sfun.lmko
 dsmDemo_sfun.obj :	"dsmDemo_sfun.c"
 	$(CC) $(CFLAGS) $(INCLUDE_PATH) "dsmDemo_sfun.c"
-c4_dsmDemo.obj :	"c4_dsmDemo.c"
-	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c4_dsmDemo.c"
+c3_dsmDemo.obj :	"c3_dsmDemo.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c3_dsmDemo.c"
 dsmDemo_sfun_registry.obj :	"dsmDemo_sfun_registry.c"
 	$(CC) $(CFLAGS) $(INCLUDE_PATH) "dsmDemo_sfun_registry.c"
 lccstub.obj :	"E:\Program Files\MATLAB\R2017a\sys\lcc64\lcc64\mex\lccstub.c"

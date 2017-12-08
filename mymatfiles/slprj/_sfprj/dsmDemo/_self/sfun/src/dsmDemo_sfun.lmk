@@ -1,0 +1,26 @@
+CC     = "E:\Program Files\MATLAB\R2017a\sys\lcc64\lcc64\bin\lcc64.exe"
+LD     = "E:\Program Files\MATLAB\R2017a\sys\lcc64\lcc64\bin\lcclnk64.exe"
+LIBCMD = "E:\Program Files\MATLAB\R2017a\sys\lcc64\lcc64\bin\lcclib64.exe"
+CFLAGS = -dll -noregistrylookup  -c -Zp8 -DLCC_WIN64 -DMATLAB_MEX_FILE -DMX_COMPAT_32 -nodeclspec 
+LDFLAGS = -s -dll -L"E:\Program Files\MATLAB\R2017a\sys\lcc64\lcc64\lib64" -entry LibMain -map sfun.map 
+LIBFLAGS = 
+
+OBJECTS = \
+	"dsmDemo_sfun.obj"\
+	"c4_dsmDemo.obj"\
+	"dsmDemo_sfun_registry.obj"\
+	"lccstub.obj"\
+
+INCLUDE_PATH= -I"E:\Program Files\MATLAB\R2017a\sys\lcc64\lcc64\include64"  -I"E:\Program Files\MATLAB\R2017a\extern\include"  -I"E:\Program Files\MATLAB\R2017a\simulink\include"  -I"E:\Program Files\MATLAB\R2017a\simulink\include\sf_runtime"  -I"E:\Program Files\MATLAB\R2017a\stateflow\c\mex\include"  -I"E:\Program Files\MATLAB\R2017a\rtw\c\src"  -I"E:\myMatToolkits\ECGprogram\mymatfiles\slprj\_sfprj\dsmDemo\_self\sfun\src" 
+ 
+
+dsmDemo_sfun.mexw64 : $(MAKEFILE) $(OBJECTS)
+	$(LD) $(LDFLAGS) -o dsmDemo_sfun.mexw64 @dsmDemo_sfun.lmko
+dsmDemo_sfun.obj :	"dsmDemo_sfun.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "dsmDemo_sfun.c"
+c4_dsmDemo.obj :	"c4_dsmDemo.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c4_dsmDemo.c"
+dsmDemo_sfun_registry.obj :	"dsmDemo_sfun_registry.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "dsmDemo_sfun_registry.c"
+lccstub.obj :	"E:\Program Files\MATLAB\R2017a\sys\lcc64\lcc64\mex\lccstub.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "E:\Program Files\MATLAB\R2017a\sys\lcc64\lcc64\mex\lccstub.c"

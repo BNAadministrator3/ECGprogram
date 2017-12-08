@@ -1,0 +1,3 @@
+LIBRARY dsmDemo_sfun.mexw64
+EXPORTS
+mexFunction
